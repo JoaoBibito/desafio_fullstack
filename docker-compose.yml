@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend
+    ports:
+      - "3001:3000" 
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=mysql://JoaoVitor:lupitTeste@db:3306/MyDatabase
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: lupitTeste
+      MYSQL_DATABASE: MyDatabase
+    ports:
+      - "3306:3306" 
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/my.cnf 
+    networks:
+      - app-network
+
+volumes:
+  db_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

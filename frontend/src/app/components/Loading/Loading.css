@@ -1,0 +1,32 @@
+
+.container_loader {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 900;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_loader::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: transparent; /* Cor de fundo com transparência */
+    backdrop-filter: blur(4px); /* Desfoque aplicado ao fundo */
+}
+
+.animation_loader{
+  top: 15%;
+  width: 35%;
+  height: 35%;
+  position: fixed;
+}

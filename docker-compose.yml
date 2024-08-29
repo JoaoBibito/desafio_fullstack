@@ -19,7 +19,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - DATABASE_URL=mysql://JoaoVitor:lupitTeste@db:3306/MyDatabase
+      - DATABASE_URL=mysql://root:lupitTeste@db:3306/MyDatabase
     depends_on:
       - db
     networks:

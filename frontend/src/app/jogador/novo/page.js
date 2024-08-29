@@ -65,7 +65,7 @@ export default function AddPlayer() {
         <s.FormRow>
           <s.Select required>
             {times.length === 0 ? (
-              <option>Carregando...</option>
+              <option>Times</option>
             ) : (
               <>
                 <option value=''>Times</option>

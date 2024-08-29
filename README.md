@@ -7,21 +7,29 @@ Aplicativo web desenvolvido para gerenciar times e jogadores. projeto foi criado
 
 #### Frontend
 
--[x] Nextjs -[x] Axios -[x] Styled Components -[x] Sweet Alert
+- [x] Nextjs
+- [x] Axios
+- [x] Styled Components
+- [x] Sweet Alert
 
 #### Backend
 
--[x] Nestjs -[x] Prisma
+- [x] Nestjs
+- [x] Prisma
 
 #### Banco de dados
 
--[x] MySql
+- [x] MySql
 
 ## Funcionalidades
 
--[x] Listar jogadores -[x] Adicionar jogador -[x] Listar times existentes -[x] Taratamento de erros com Sweet Alert -[x] Load animado
--[] Editar Jogador
--[] deletar jogador
+- [x] Listar jogadores
+- [x] Adicionar jogador
+- [x] Listar times existentes
+- [x] Taratamento de erros com Sweet Alert
+- [x] Load animado
+- [] Editar Jogador
+- [] deletar jogador
 
 ## Instalação e configuração
 

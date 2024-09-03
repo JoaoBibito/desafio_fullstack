@@ -17,17 +17,17 @@ export class TeamsController {
   }
 
   @Get(":id")
-  findOnde(@Param(":id") id: string) {
+  findOnde(@Param("id") id: string) {
     return this.teamService.findOne(+id)
   }
 
   @Put(":id")
-  update(@Param(":id") id: string, @Body() updateTeamDTO: UpdateTeamDTO) {
+  update(@Param("id") id: string, @Body() updateTeamDTO: UpdateTeamDTO) {
     return this.teamService.update(+id, updateTeamDTO)
   }
 
   @Delete(":id")
-  remove(@Param(":id") id: string) {
+  remove(@Param("id") id: string) {
     return this.teamService.remove(+id)
   }
 }

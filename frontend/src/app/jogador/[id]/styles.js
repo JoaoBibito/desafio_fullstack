@@ -35,7 +35,11 @@ export const Input = styled.input`
   padding: 0.5em;
 `;
 export const Button = styled.button`
-  padding: 5px;
+  background-color: #2294f4;
+  color: white;
+  border: none;
+  padding: 0.3rem;
+  border-radius: 7px;
   width: 80px;
   margin-left: auto;
   color: white;

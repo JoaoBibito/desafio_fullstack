@@ -1,6 +1,7 @@
 "use client";
 import styles from "../../page.module.css";
 import axios from "axios";
+import {useRouter} from "next/navigation";
 import {useEffect, useState} from "react";
 import Swal from "sweetalert2";
 import * as s from "./style.js";
@@ -9,6 +10,7 @@ import Loading from "@/app/components/Loading/Loading";
 export default function AddPlayer() {
   const [times, setTimes] = useState([]);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
   useEffect(() => {
     try {
       async function buscaTimes() {
@@ -39,10 +41,14 @@ export default function AddPlayer() {
       );
       setLoading(false);
       Swal.fire({
-        icon: "sucess",
+        icon: "success",
         title: "Sucesso!",
         text: "Jogador cadastrado com sucesso",
       });
+
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
     } catch (err) {
       setLoading(false);
       Swal.fire({

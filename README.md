@@ -28,8 +28,8 @@ Aplicativo web desenvolvido para gerenciar times e jogadores. projeto foi criado
 - [x] Listar times existentes
 - [x] Taratamento de erros com Sweet Alert
 - [x] Load animado
-- [] Editar Jogador
-- [] deletar jogador
+- [x] Editar Jogador
+- [x] deletar jogador
 
 ## Instalação e configuração
 

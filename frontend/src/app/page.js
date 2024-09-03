@@ -32,13 +32,14 @@ export default function Home() {
       if (result.isConfirmed) {
         try {
           const res = await axios.delete(
-            `${process.env.NEXT_PUBLIC_base_url}/player/${id}`
+            `${process.env.NEXT_PUBLIC_base_url}/players/${id}`
           );
           setPlayers((prevPlayers) =>
             prevPlayers.filter((player) => player.id !== id)
           );
           Swal.fire("Excluído!", "Jogador excluido com sucesso.", "success");
         } catch (err) {
+          console.log("Erro", err);
           Swal.fire("Erro!", "Ocorreu um erro ao excluir o jogador.", "error");
         }
       }

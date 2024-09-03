@@ -4,6 +4,7 @@ import {useState, useEffect} from "react";
 import axios from "axios";
 import Loading from "@/app/components/Loading/Loading";
 import * as s from "./styles.js";
+import Swal from "sweetalert2";
 
 export default function UpdatePlayer() {
   const rota = usePathname();
@@ -21,12 +22,12 @@ export default function UpdatePlayer() {
         setPlayer({
           name: res.data.name, // Atualiza o estado com os dados do jogador
           age: res.data.age.toString(),
-          teamId: res.data.teamId,
+          team_id: res.data.team_id,
         });
       } catch (err) {
         Swal.fire({
           icon: "error",
-          title: "Erro ao buscar times",
+          title: "Erro ao buscar jogador",
         });
       }
     };
@@ -53,15 +54,33 @@ export default function UpdatePlayer() {
     return <Loading />;
   }
 
-  const handleInputChange = async () => {
-    const {name, value} = e.target;
+  const handleInputChange = async (e) => {
+    let {name, value} = e.target;
+
     setPlayer({
       ...player,
       [name]: value,
     });
   };
 
-  const editPlayer = async () => {};
+  const editPlayer = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.put(
+        `${process.env.NEXT_PUBLIC_base_url}/players/${id}`,
+        {
+          name: player.name,
+          age: parseInt(player.age),
+          team_id: parseInt(player.team_id),
+        }
+      );
+      if (res.status === 200) {
+        Swal.fire("Excluído!", "Jogador excluido com sucesso.", "success");
+      }
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
 
   return (
     <s.Main>
@@ -86,7 +105,12 @@ export default function UpdatePlayer() {
           />
         </s.FormRow>
         <s.FormRow>
-          <s.Select required>
+          <s.Select
+            name='team_id'
+            value={player.team_id}
+            onChange={handleInputChange}
+            required
+          >
             {times.length === 0 ? (
               <option>Carregando...</option>
             ) : (
